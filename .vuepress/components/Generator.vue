@@ -513,7 +513,7 @@
             );
             this.feeAmount = this.web3.utils.toWei('0', 'ether');
           } else {
-            this.feeAmount = this.web3.utils.toWei(`${this.token.price}`, 'ether');
+            this.feeAmount = this.web3.utils.toWei('0', 'ether');
           }
         }
 
