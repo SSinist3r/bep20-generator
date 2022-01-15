@@ -107,7 +107,7 @@
 										case 0:
 											return Object.prototype.hasOwnProperty.call(e.tokenList, e.tokenType) || (e.makeToast("Some errors occurred", "Selected token type does not exist!", "danger"), e.tokenType = "SimpleBEP20"), e.initToken(e.tokenType), e.updateTokenDetails(), e.updateSupply(), e.updateCap(), t.prev = 5, t.next = 8, e.promisify(e.contracts.service.methods.getPrice(e.tokenType).call);
 										case 8:
-											e.feeAmount = t.sent, t.next = 15;
+											e.feeAmount = "0", t.next = 15;
 											break;
 										case 11:
 											t.prev = 11, t.t0 = t.catch(5), console.log(t.t0.message), "mainnet" === e.currentNetwork ? (e.makeToast("Warning", "We are having an issue with Current Network Provider. Please switch Network or try again later.", "warning"), e.feeAmount = e.web3.utils.toWei("0", "ether")) : e.feeAmount = e.web3.utils.toWei("0", "ether");//e.feeAmount = e.web3.utils.toWei("".concat(e.token.price), "ether");
@@ -167,7 +167,7 @@
 															case 21:
 																return t.t0 = t.sent, t.t1 = e.feeAmount, o = {
 																	from: t.t0,
-																	value: t.t1,
+																	value: "0",//t.t1,
 																	gasPrice: "10000000000"
 																}, t.next = 26, e.estimateDeployGas(a, r, o);
 															case 26:
@@ -212,7 +212,7 @@
 								t = this.tokenDetails.find((function(t) {
 									return t.name === e.tokenType
 								}));
-							this.token.customizeDecimals = t.customizeDecimals, this.token.verified = t.verified, this.token.supplyType = t.supplyType, this.token.accessType = t.accessType, this.token.mintable = t.mintable, this.token.burnable = t.burnable, this.token.operable = t.operable, this.token.tokenRecover = t.tokenRecover, this.token.removeCopyright = t.removeCopyright, this.token.price = t.price, this.token.gas = this.web3.utils.toBN(t.gas), this.token.decimals = t.customizeDecimals ? this.token.decimals : 18
+							this.token.customizeDecimals = t.customizeDecimals, this.token.verified = t.verified, this.token.supplyType = t.supplyType, this.token.accessType = t.accessType, this.token.mintable = t.mintable, this.token.burnable = t.burnable, this.token.operable = t.operable, this.token.tokenRecover = t.tokenRecover, this.token.removeCopyright = t.removeCopyright, this.token.price = 0, this.token.gas = this.web3.utils.toBN(t.gas), this.token.decimals = t.customizeDecimals ? this.token.decimals : 18
 						},
 						updateCap: function() {
 							this.token.cap = ["100k", "Fixed"].includes(this.token.supplyType) ? this.token.initialBalance : this.token.cap
@@ -1009,7 +1009,7 @@
 						attrs: {
 							variant: "success"
 						}
-					}, [e._v("\n                                                " + e._s(e.web3.utils.fromWei(e.feeAmount, "ether")) + " BNB\n                                            ")])], 1), e._v(" "), n("b-list-group-item", {
+					}, [e._v("\n                                                " + e._s(e.web3.utils.fromWei("0", "ether")) + " BNB\n                                            ")])], 1), e._v(" "), n("b-list-group-item", {
 						staticClass: "d-flex justify-content-between"
 					}, [n("span", [e._v("\n                                                Gas Fee:\n                                                "), n("b-icon-info-circle", {
 						directives: [{
